@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://unpkg.com/tabulator-tables@4.1.4/dist/css/tabulator.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+  <style type="text/css">
+    .filter-value {
+      margin-bottom: 25px;
+      height: 50px;
+      font-size: 18px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <h1 style="text-align:center">IoT Device Hub</h1>
+    <h4 style="text-align:center;color:grey;">The IoT Device Repository you need</h4>
+    <p class="lead">
+      <br>
+      <br>
+      <br>
+    </p>
+
+
+    <input class="form-control filter-value" id="filter-value" type="text" placeholder="value to filter" />
+    <button class="btn btn-link" id="download" style="float: right;">
+      Download as CSV
+    </button>
+
+
+    <table id="sensorTable" class=" table table-striped table-bordered" style="width:100%">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Manufacturer name</th>
+          <th>Sensor type</th>
+          <th>Sensor brand</th>
+          <th>Version</th>
+          <th>Web link</th>
+          <th>File in GitHub Repo.</th>
+          <!-- <th>Certification</th> -->
+          <!-- <th>Data acquisition</th> -->
+          <!-- <th>Communication</th> -->
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+
+    <h1 style="text-align:center">To power a more powerful IoT world</h1>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="./page1.js"></script>
+    <script src="../js/csvExport.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-1.10.18/r-2.2.2/datatables.min.css"> -->
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/r-2.2.2/datatables.min.js"></script>
+
+    <script type="text/javascript">
+
+      function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
+      }
+
+      function filterTableData(selectedValue) {
+        let vals = [];
+        $('#sensorTable > tbody  > tr').each(function (i, val) {
+          let values = $(val).attr("keywords");
+          if (values.includes(selectedValue)) {
+            $(this).show();
+            vals.push(this);
+          } else {
+            $(this).hide();
+          }
+        });
+
+        // $("#exportTable tbody").empty();
+        // for (let i = 0; i < vals.length; i++) {
+        //   const element = vals[i];
+        //   $("#exportTable tbody").append(element+"");
+        // }
+      }
+
+      const table = new TableMaker();
+      const dataForAutocomplete = table.fetchDataForAutocomplete();
+      dataForAutocomplete.then(function (array) {
+        const jsonValues = table.getJsonValues(array);
+
+        $("#filter-value").autocomplete({
+          source: jsonValues.filter(onlyUnique),
+          select: function (event, ui) {
+            let selectedValue = ui.item.value;
+            $("#filter-value").val(selectedValue);
+            filterTableData(selectedValue);
+          },
+          change: function (event, ui) {
+            console.log("changed");
+          }
+        });
+      });
+
+      const dataForTableView = table.fetchDataForTableView();
+      dataForTableView.then(function (array) {
+        for (let index = 0; index < array.length; index++) {
+          const element = array[index];
+          let valuesArray = [];
+          const jsonValues = table.getNonObjJsonValues(Object.values(element), valuesArray);
+          addRow(element, jsonValues, index);
+        }
+
+        $('#sensorTable').DataTable({
+          scrollY: 500,
+          paging: false,
+          // responsive: true,
+          searching: false,
+        });
+      });
+
+      document.querySelector("#download").addEventListener("click", e => {
+        e.preventDefault();
+        $('#sensorTable').csvExport();
+      });
+
+      function checkUndefined(value) {
+        return typeof value !== 'undefined' ? value : "";
+      }
+
+      function addRow(element, jsonValues, index) {
+        var name = checkUndefined(element["manufacturer name"]);
+        var type = checkUndefined(element["sensor type"]);
+        var brand = checkUndefined(element["sensor brand"]);
+        var version = checkUndefined(element["version"]);
+        var web_link = checkUndefined(element["web_link"]);
+        var fileInGitHub = checkUndefined(element["fileName"]);
+
+        var certification = JSON.stringify(element["Sensor Attributes"]["Certification"]) + "";
+        var data_acquisition = JSON.stringify(element["Sensor Attributes"]["Data acquisition (Vibration)"]) + "";
+        var communication = JSON.stringify(element["Sensor Attributes"]["Communications"]) + "";
+
+        var row = "<tr keywords='" + jsonValues + "'>" +
+          "<td>" + parseInt(index + 1) + "</td> " +
+          "<td>" + name + "</td> " +
+          "<td>" + type + "</td> " +
+          "<td>" + brand + "</td> " +
+          "<td>" + version + "</td> " +
+          "<td>" + web_link + "</td> " +
+          // "<td><a target='_blank' href='//" + web_link + "'>" + web_link + "</td> " +
+          "<td><a target='_blank' href='/page1/data/" + fileInGitHub + "'>More Details</a></td> " +
+          // "<td>" + certification + "..." + "</td> " +
+          // "<td>" + data_acquisition + "..." + "</td> " +
+          // "<td>" + communication + "..." + "</td> " +
+          "</tr>";
+        $("#sensorTable tbody").append(row);
+      }
+
+      $(document).ready(function () {
+        $("#filter-value").keyup(function () {
+          if ($("#filter-value").val() == "") {
+            $('#sensorTable > tbody  > tr').show();
+          }
+        });
+      });
+
+    </script>
+
+    <table id="exportTable" style="display:none;">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Manufacturer name</th>
+          <th>Sensor type</th>
+          <th>Sensor brand</th>
+          <th>Version</th>
+          <th>Product Link</th>
+          <th>File in GitHub Repo.</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+  </div>
+</body>
+
+</html>

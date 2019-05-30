@@ -1,0 +1,41 @@
+{
+  "manufacturer name": "Yokogawa",
+  "sensor type": "vibration",
+  "sensor brand":"Sushi",
+  "version": "1.0.0",
+  "web_link": "www.sushi.com",
+  
+  "Sensor Attributes": {
+    "Data acquisition (Vibration)": {
+      "Measuring Value1": "Acceleration (Peak)",
+      "Measuring Value2": "Velocity (RMS)",
+      "Measuring Axis": "3-axes (X, Y, Z) + Composite",
+      "Frequency Band": "10 to 1000 Hz (±3dB)",
+      "Measuring Range": "Acceleration: 0 - 130 m/s^2, Velocity: 0 - 20 mm/s"
+    },
+    "Certification":{
+      "Hazardous environment":"ATEX Zone 2",
+      "Certification Mark of conformity":"CE",
+      "Environmental Resistance": "P66/67; Ex-proof",
+      "Others":"TBD"
+    },
+    "Data acquisition (Temperature)": {
+      "Measuring Value": "Surface Temperature (Sensor base part)",
+      "Measuring Range": "-20 to 85 degC"
+    },
+    "Power Supply": {
+      "Battery": "AA size Lithium thionyl chloride x 1 (User exchangeable)"
+    },
+    "Communications": {
+      "LoRaWAN": "EU868; Class A",
+      "NFC": "True"
+    },
+    "Physical": {
+      "Size": "46mm (Diameter) x 97mm (Height)",
+      "Weight": "260g",
+      "Operating temperature range":" -20 - 60 celsius degree",
+      "Oeprating Humidity range":"TBD",
+      "Other operating condition":"TBD"
+    }
+  }
+}
