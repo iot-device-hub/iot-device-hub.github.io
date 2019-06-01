@@ -1,6 +1,6 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[<img align="right" width="150" src="assets/join-slack-team.png">](linkTBD)
+[<img align="right" width="150" src="img/join-slack-team.png">](linkTBD)
 
 # IoT Device Hub
 
@@ -13,7 +13,7 @@ To maintain the server to host a website and update sensor list is a lot of work
 3. There is no publically agreed way (format) to gather IoT Device information to ease searching
 Google is a good start when you start to look for your IoT Devices. However, results are mostly Ads or a few centralized sensor market that don't really help. IoT products information is uploaded to the internet in different format, which makes searching difficult.
 
-Uterlizing GitHub public Repository and GitHub Page. We are creating a place where all the IoT device suppliers can contribute their IoT device information to the whole world without any cost. End consumers or enterprises can use the GitHub Page site to search our data repository to find the devices effectively. 
+Utilizing GitHub public Repository and GitHub Page, we are creating a place where all the IoT device suppliers can contribute their IoT device information to the whole world without any cost. End consumers or enterprises can use the GitHub Page site to search our data repository to find the devices effectively. 
 
 
 
@@ -26,7 +26,7 @@ Consumers who want to buy IoT product: This is gonna become your sinlge point of
 
 ### End consumers
 We have built everything for you. Just go to our GitHub page: https://iot-device-hub.github.io, and start your search!
-
+<img align="center" width="500" src="img/IDH_site_screenshot.PNG" alt="IDH_site_screenshot.PNG" />
 
 ### IoT device suppliers
 We store IoT Device information in a JSON file in our page1/data folder, and use javascript to query the data and display it on the [website](https://iot-device-hub.github.io/page1/page1.html). All hosted in GitHub Page. 
