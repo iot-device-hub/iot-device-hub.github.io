@@ -1,6 +1,6 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[<img align="right" width="150" src="img/join-slack-team.png">](linkTBD)
+[<img align="right" width="150" src="img/github_repo/join-slack-team.png">](linkTBD)
 
 # IoT Device Hub
 
@@ -26,11 +26,11 @@ Consumers who want to buy IoT product: This is gonna become your sinlge point of
 
 ### End consumers
 We have built everything for you. Just go to our GitHub page: https://iot-device-hub.github.io, and start your search!
-<img style="float: right;" src="img/IDH_site_screenshot.PNG" alt="IDH_site_screenshot.PNG" />
+<img style="float: right;" src="img/github_repo/IDH_site_screenshot.PNG" alt="IDH_site_screenshot.PNG" />
 
 ### IoT device suppliers
 We store IoT Device information in a JSON file in our page1/data folder, and use javascript to query the data and display it on the [website](https://iot-device-hub.github.io/page1/page1.html). All hosted in GitHub Page. 
-<img style="float: right;" src="img/IDH_search_screenshot.PNG" alt="IDH_search_screenshot.PNG" />
+<img style="float: right;" src="img/github_repo/IDH_search_screenshot.PNG" alt="IDH_search_screenshot.PNG" />
 
 ## Contribution
 To submit your IoT Device Catalog just like you create a pull request (PR) to submit new code, update your device info like create a bug fix. We are playing the rule exactly like other developers in GitHub.
