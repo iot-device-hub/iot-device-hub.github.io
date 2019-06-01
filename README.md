@@ -26,7 +26,7 @@ Consumers who want to buy IoT product: This is gonna become your sinlge point of
 
 ### End consumers
 We have built everything for you. Just go to our GitHub page: https://iot-device-hub.github.io, and start your search!
-<img align="center" width="500" src="img/IDH_site_screenshot.PNG" alt="IDH_site_screenshot.PNG" />
+<img style="float: right;" src="img/IDH_site_screenshot.PNG" alt="IDH_site_screenshot.PNG" />
 
 ### IoT device suppliers
 We store IoT Device information in a JSON file in our page1/data folder, and use javascript to query the data and display it on the [website](https://iot-device-hub.github.io/page1/page1.html). All hosted in GitHub Page. 
