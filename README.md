@@ -44,9 +44,54 @@ All IoT Device information must be submitted in JSON in the pager1/data folder. 
 
 1. Use the latest tempalate to load your device info. It can be found under the folder [page1](https://github.com/iot-device-hub/iot-device-hub.github.io/tree/master/page1), named template.json. 
 2. Write only relevant "values" for each attribute, too many text description and irrelevant key words will get you a rejection.
-3. Naming convention of your JSON file must follow: <supplier name><sensor name><snesor type ID>.json
+3. Naming convention of your JSON file must follow: (supplier name)-(sensor name)-(snesor type ID).json
 4. add your JSON file into the manifest.json file
 
+SensorTemplate:
+```json
+{
+  "manufacturer name": "Company A",
+  "IoT Device Type": "sensor",
+  "sensor type": "vibration",
+  "sensor brand":"Brand X",
+  "version": "1.0.0",
+  "web_link": "https://company-a/brandx.com",
+  
+  "Sensor Attributes": {
+    "Data acquisition (Vibration)": {
+      "Measuring Value1": "Acceleration (Peak)",
+      "Measuring Value2": "Velocity (RMS)",
+      "Measuring Axis": "3-axes (X, Y, Z) + Composite",
+      "Frequency Band": "10 to 1000 Hz (±3dB)",
+      "Measuring Range": "Acceleration: 0 - 130 m/s^2, Velocity: 0 - 20 mm/s"
+    },
+    "Certification":{
+      "Hazardous environment":"ATEX Zone 2",
+      "Certification Mark of conformity":"CE",
+      "Environmental Resistance": "P66/67; Ex-proof",
+      "Others":"TBD"
+    },
+    "Data acquisition (Temperature)": {
+      "Measuring Value": "Surface Temperature (Sensor base part)",
+      "Measuring Range": "-20 to 85 degC"
+    },
+    "Power Supply": {
+      "Battery": "AA size Lithium thionyl chloride x 1 (User exchangeable)"
+    },
+    "Communications": {
+      "LoRaWAN": "EU868; Class A",
+      "NFC": "True"
+    },
+    "Physical": {
+      "Size": "46mm (Diameter) x 97mm (Height)",
+      "Weight": "260g",
+      "Operating temperature range":" -20 - 60 celsius degree",
+      "Oeprating Humidity range":"TBD",
+      "Other operating condition":"TBD"
+    }
+  }
+}
+```
 ### Website contribution
 We have a very minimal function website to keep things simple, but it doesn't mean we don't want to improve. Currently we label issues and PR for anything we want to add or upgrade for the website. You can also contact us in our Slack if you dislike our site ;-)
 
