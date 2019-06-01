@@ -30,7 +30,7 @@ We have built everything for you. Just go to our GitHub page: https://iot-device
 
 ### IoT device suppliers
 We store IoT Device information in a JSON file in our page1/data folder, and use javascript to query the data and display it on the [website](https://iot-device-hub.github.io/page1/page1.html). All hosted in GitHub Page. 
-
+<img style="float: right;" src="img/IDH_search_screenshot.PNG" alt="IDH_search_screenshot.PNG" />
 
 ## Contribution
 To submit your IoT Device Catalog just like you create a pull request (PR) to submit new code, update your device info like create a bug fix. We are playing the rule exactly like other developers in GitHub.
