@@ -1,3 +1,7 @@
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[<img align="right" width="150" src="assets/join-slack-team.png">](linkTBD)
+
 # IoT Device Hub
 
 IoT Device Hub project is providing a fully open sourced "market place" to list all the IoT Device product information. It is a multi-sided platform aims to fill the gap between those IoT Product providers and those end customers. It was designed to be open sourced to solve 3 main challenges:
@@ -58,7 +62,7 @@ Without the following names we won't be able to achieve this. The first step is 
 ## Roadmap
 To be updated.
 ## License
-Copyright (c) [2019] [IoT-Device-Hub Project]
+Copyright (c) 2019 Yudi Xu, the initiator of the IoT Device Hub Project
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

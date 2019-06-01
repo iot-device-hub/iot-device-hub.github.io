@@ -1,9 +1,10 @@
 {
-  "manufacturer name": "Yokogawa",
+  "manufacturer name": "Company A",
+  "IoT Device Type": "sensor",
   "sensor type": "vibration",
-  "sensor brand":"Sushi",
+  "sensor brand":"Brand X",
   "version": "1.0.0",
-  "web_link": "www.sushi.com",
+  "web_link": "https://company-a/brandx.com",
   
   "Sensor Attributes": {
     "Data acquisition (Vibration)": {
