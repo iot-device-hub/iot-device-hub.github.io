@@ -105,4 +105,8 @@ Without the following names we won't be able to achieve this. The first step is 
 [Yvo Thal](https://www.linkedin.com/in/yvothal/)
 
 ## Roadmap
-To be updated.
+### Phase 1
+The focus is to onboard IoT sensors and IoT protocol contributors (e.g., LoRa, NBIoT)_
+
+### Phase 2 
+Collaborate with more IoT players to onboard Gateways, Edge devices, etc to our repo. The device template will evolve to meet the new requirements as well. 
