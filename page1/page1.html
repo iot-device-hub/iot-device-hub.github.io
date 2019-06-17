@@ -76,8 +76,9 @@
       function filterTableData(selectedValue) {
         let vals = [];
         $('#sensorTable > tbody  > tr').each(function (i, val) {
-          let values = $(val).attr("keywords");
-          if (values.includes(selectedValue)) {
+          let values = $(val).attr("keywords").toLowerCase();
+          if (values.includes(selectedValue.toLowerCase())) {
+            console.log(values);
             $(this).show();
             vals.push(this);
           } else {
@@ -111,6 +112,7 @@
       });
 
       const dataForTableView = table.fetchDataForTableView();
+      var sensorTable;
       dataForTableView.then(function (array) {
         for (let index = 0; index < array.length; index++) {
           const element = array[index];
@@ -119,10 +121,8 @@
           addRow(element, jsonValues, index);
         }
 
-        $('#sensorTable').DataTable({
-          scrollY: 500,
+        sensorTable = $('#sensorTable').DataTable({
           paging: false,
-          // responsive: true,
           searching: false,
         });
       });
@@ -165,9 +165,13 @@
       }
 
       $(document).ready(function () {
-        $("#filter-value").keyup(function () {
-          if ($("#filter-value").val() == "") {
-            $('#sensorTable > tbody  > tr').show();
+        $("#filter-value").keyup(function (e) {
+          if (event.which == 13) { // the enter key code
+            filterTableData(this.value);
+          } else {
+            if ($("#filter-value").val() == "") {
+              $('#sensorTable > tbody  > tr').show();
+            }
           }
         });
       });
